@@ -5,7 +5,6 @@
 
 import random,string
 file=open('forA.txt','w',encoding='UTF-8')
-
 k=random.randint(1,5)
 koefs=[]
 print(k)
@@ -21,12 +20,13 @@ for ind,koef in enumerate(koefs):
                 equation+=str(koef)
             equation+='=0'
         else:
-            if koef>1:
-                equation+=str(koef)
-            equation+='*x'
-            if ind<len(koefs)-2:
-                equation+='**'+str(len(koefs)-1-ind)
-            equation+='+'
+            if koef>0:
+                if koef>1:
+                    equation+=str(koef)
+                equation+='*x'
+                if ind<len(koefs)-2:
+                    equation+='**'+str(len(koefs)-1-ind)
+                equation+='+'
 file.writelines(equation)
 file.close
 print(equation)
